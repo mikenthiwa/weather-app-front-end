@@ -1,0 +1,53 @@
+.current-weather {
+  
+  display: flex;
+  flex-direction: column;
+  
+  &__header {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    &__city {
+      margin: 0
+    }
+  }
+  
+  &__body {
+    display: flex;
+    //justify-content: center;
+    
+    &__details {
+      display: flex;
+      .icon {
+        margin-left: 10px;
+      }
+
+      &__temp {
+        color: red;
+        margin-left: 10px;
+        div {
+          font-size: 1.5em;
+        }
+      }
+      
+    }
+    &__meta-details {
+      display: flex;
+      flex-direction: column;
+      
+      &__row {
+        display: flex;
+        flex-direction: row;
+        
+        &__item {
+          padding: 5px;
+        }
+        
+        
+      }
+    }
+    
+    
+  }
+  
+}

@@ -1,24 +1,20 @@
 import logo from './logo.svg';
 import './App.scss';
+import CurrentWeather from './app/components/CurrentWeather.component';
+import { WeatherData } from './app/mocks/mock-data';
+import BaseLayout from './app/components/BaseLayout.component';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BaseLayout>
+      <CurrentWeather
+        weather={WeatherData.weather}
+        dt={WeatherData.dt}
+        main={WeatherData.main}
+        name={WeatherData.name}
+        wind={WeatherData.wind}
+      />
+    </BaseLayout>
   );
 }
 
