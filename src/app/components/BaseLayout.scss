@@ -1,0 +1,11 @@
+// BaseLayout.scss
+.base-layout {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  height: 100vh; 
+  width: 100vw; 
+  padding-top: 20vh;
+  background: linear-gradient(to bottom, #2937b3, #1585ca);
+  color: #fff; // Sets the font color to white
+}

@@ -1,24 +1,35 @@
-import logo from './logo.svg';
 import './App.scss';
+import CurrentWeather from './app/components/CurrentWeather.component';
+import BaseLayout from './app/components/BaseLayout.component';
+import { fetchWeatherByCity } from './app/services/weather.service';
+import { useEffect, useState } from 'react';
+import { ColorRing } from 'react-loader-spinner';
 
 function App() {
+  const [weatherData, setWeatherData] = useState(null);
+
+  useEffect(() => {
+    fetchWeatherByCity('Nairobi').then(data => {
+      setWeatherData(data);
+    });
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BaseLayout>
+      {weatherData ? (
+        <CurrentWeather
+          weather={weatherData.weather}
+          dt={weatherData.dt}
+          main={weatherData.main}
+          name={weatherData.name}
+          wind={weatherData.wind}
+        />
+      ) : (
+        <div className="loading">
+          <ColorRing color="#fff" ariaLabel="circles-loading" visible={true} />
+        </div>
+      )}
+    </BaseLayout>
   );
 }
 
