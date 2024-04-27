@@ -1,35 +1,27 @@
 import './App.scss';
-import CurrentWeather from './app/components/CurrentWeather.component';
 import BaseLayout from './app/components/BaseLayout.component';
-import { fetchWeatherByCity } from './app/services/weather.service';
-import { useEffect, useState } from 'react';
-import { ColorRing } from 'react-loader-spinner';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { WeatherProvider } from './app/context/WeatherContext';
 
 function App() {
-  const [weatherData, setWeatherData] = useState(null);
-
-  useEffect(() => {
-    fetchWeatherByCity('Nairobi').then(data => {
-      setWeatherData(data);
-    });
-  }, []);
-
   return (
-    <BaseLayout>
-      {weatherData ? (
-        <CurrentWeather
-          weather={weatherData.weather}
-          dt={weatherData.dt}
-          main={weatherData.main}
-          name={weatherData.name}
-          wind={weatherData.wind}
+    <WeatherProvider>
+      <BaseLayout>
+        <ToastContainer
+          position="top-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="light"
         />
-      ) : (
-        <div className="loading">
-          <ColorRing color="#fff" ariaLabel="circles-loading" visible={true} />
-        </div>
-      )}
-    </BaseLayout>
+      </BaseLayout>
+    </WeatherProvider>
   );
 }
 

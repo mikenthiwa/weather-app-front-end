@@ -1,12 +1,22 @@
 import ReactAnimatedWeather from 'react-animated-weather';
+import moment from 'moment';
 import { RenderWeatherIcon } from '../helper';
 import _ from 'lodash';
-import moment from 'moment';
+import { ColorRing } from 'react-loader-spinner';
+import { useWeather } from '../context/WeatherContext';
 import './CurrentWeather.scss';
 
-const CurrentWeather = ({ weather, main, name, dt, wind }) => {
-  const [weatherData] = weather;
-  const getWeatherIcon = RenderWeatherIcon(weatherData.icon);
+const CurrentWeather = () => {
+  const { weatherData, translate } = useWeather();
+  if (!weatherData)
+    return (
+      <ColorRing color="#fff" ariaLabel="circles-loading" visible={true} />
+    );
+
+  const { weather, main, name, dt, wind } = weatherData;
+  const [data] = weather;
+  const getWeatherIcon = RenderWeatherIcon(data.icon);
+
   return (
     <div className="current-weather">
       <div className="current-weather__header">
@@ -19,14 +29,14 @@ const CurrentWeather = ({ weather, main, name, dt, wind }) => {
         <div className="current-weather__body__details">
           <ReactAnimatedWeather
             className="icon"
-            icon={getWeatherIcon}
+            icon={_.upperCase(data.main) || getWeatherIcon}
             size={100}
             animate={true}
             color={'#fff'}
           />
           <div className="current-weather__body__temp">
             <div>{Math.round(main.temp - 273.15)}°</div>
-            <small>{_.upperFirst(weatherData.description)}</small>
+            <small>{_.upperFirst(data.description)}</small>
           </div>
         </div>
 
@@ -35,24 +45,24 @@ const CurrentWeather = ({ weather, main, name, dt, wind }) => {
         <div className="current-weather__body__meta-details">
           <div className="current-weather__body__meta-details__row">
             <div className="current-weather__body__meta-details__row__item row-1">
-              <div>High</div>
+              <div> {translate('high')}</div>
               <div>{Math.round(main.temp_max - 273.15)}°C</div>
             </div>
 
             <div className="current-weather__body__meta-details__row__item">
-              <div>Wind</div>
+              <div>{translate('wind')}</div>
               <div>{wind.speed} m/s</div>
             </div>
           </div>
 
           <div className="current-weather__body__meta-details__row">
             <div className="current-weather__body__meta-details__row__item">
-              <div>Low</div>
+              <div>{translate('low')}</div>
               <div>{Math.round(main.temp_min - 273.15)}°C</div>
             </div>
 
             <div className="current-weather__body__meta-details__row__item">
-              <div>Humidity</div>
+              <div>{translate('humidity')}</div>
               <div>{main.humidity}%</div>
             </div>
           </div>

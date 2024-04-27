@@ -1,0 +1,28 @@
+.header {
+  display: flex;
+  justify-content: end;
+  margin-bottom: 20px;
+  
+  .toggle-container {
+    display: flex;
+    border-radius: 8px;
+    cursor: pointer;
+    background: white;
+    
+    div {
+      width: 50%;
+      text-align: center;
+      padding: 10px 20px;
+      border-radius: 8px;
+      &.active {
+        background-color: #1585ca;
+        color: white;
+      }
+      &.inactive {
+        background: white;
+        color: black;
+      }
+    }
+    
+  }
+}
