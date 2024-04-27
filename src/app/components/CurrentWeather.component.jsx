@@ -22,15 +22,19 @@ const CurrentWeather = ({ weather, main, name, dt, wind }) => {
             icon={getWeatherIcon}
             size={100}
             animate={true}
+            color={'#fff'}
           />
           <div className="current-weather__body__temp">
-            <div>{Math.round(main.temp - 273.15)}°C</div>
+            <div>{Math.round(main.temp - 273.15)}°</div>
             <small>{_.upperFirst(weatherData.description)}</small>
           </div>
         </div>
+
+        <hr />
+
         <div className="current-weather__body__meta-details">
           <div className="current-weather__body__meta-details__row">
-            <div className="current-weather__body__meta-details__row__item">
+            <div className="current-weather__body__meta-details__row__item row-1">
               <div>High</div>
               <div>{Math.round(main.temp_max - 273.15)}°C</div>
             </div>
