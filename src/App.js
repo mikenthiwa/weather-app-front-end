@@ -2,7 +2,7 @@ import './App.scss';
 import BaseLayout from './app/components/BaseLayout.component';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { WeatherProvider } from './app/context/WeatherContext';
+import WeatherProvider from './app/context/WeatherContext';
 
 function App() {
   return (

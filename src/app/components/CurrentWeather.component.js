@@ -1,9 +1,9 @@
 import ReactAnimatedWeather from 'react-animated-weather';
 import moment from 'moment';
+import { useWeather } from '../context/WeatherContext';
 import { RenderWeatherIcon } from '../helper';
 import _ from 'lodash';
 import { ColorRing } from 'react-loader-spinner';
-import { useWeather } from '../context/WeatherContext';
 import './CurrentWeather.scss';
 
 const CurrentWeather = () => {
