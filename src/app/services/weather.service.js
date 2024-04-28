@@ -1,16 +1,20 @@
-import { WeatherData } from '../mocks/mock-data';
 import WeatherApi from './index';
+import { toast } from 'react-toastify';
 
-const API_KEY = '83e42b02147e6c7ff20b67fac40c9c3a';
-const BASE_URL = 'https://api.openweathermap.org/data/2.5/weather';
+const API_KEY = process.env.REACT_APP_WEATHER_API_KEY || '';
 
 export const fetchWeatherByCity = async city => {
   try {
-    const response = await WeatherApi.get(
-      `${BASE_URL}?q=${city}&appid=${API_KEY}`
-    );
-    return response.data;
+    const response = await WeatherApi.get(`?q=${city}&appid=${API_KEY}`);
+    if (response.status === 200) {
+      return response.data;
+    } else {
+      // render toast notification
+      toast.error('Error fetching weather data');
+      throw new Error('Error fetching weather data');
+    }
   } catch (error) {
-    console.error('Error fetching weather data: ', error);
+    toast.error('Something went wrong!');
+    throw error;
   }
 };
