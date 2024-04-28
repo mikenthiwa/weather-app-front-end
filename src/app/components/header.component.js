@@ -21,10 +21,9 @@ const HeaderComponent = () => {
           className={`${language === 'sw' ? 'active' : 'inactive'}`}
           onClick={languageToggle}
         >
-          Kiswahili
+          Swahili
         </div>
       </div>
-      {/*<button onClick={languageToggle}>Toggle language</button>*/}
     </div>
   );
 };
