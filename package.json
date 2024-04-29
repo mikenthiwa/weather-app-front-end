@@ -18,13 +18,16 @@
     "sass": "^1.75.0",
     "web-vitals": "^2.1.4"
   },
+  "homepage": "https://github.com/mikenthiwa/weather-app-front-end.git",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --transformIgnorePatterns \"node_modules/(?!axios)/\"",
     "eject": "react-scripts eject",
     "prettier-check": "prettier --check .",
-    "prettier-format": "prettier --write ."
+    "prettier-format": "prettier --write .",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -45,6 +48,7 @@
     ]
   },
   "devDependencies": {
+    "gh-pages": "^6.1.1",
     "prettier": "^3.2.5"
   }
 }
