@@ -10,8 +10,8 @@ This application fetches weather data for Nairobi and displays it in a user-frie
 
 To install the project, follow these steps:
 
-1. Clone the repository: `git clone https://github.com/mikenthiwa/your-repo.git`
-2. Navigate to the project directory: `cd your-repo`
+1. Clone the repository: `git clone https://github.com/mikenthiwa/weather-app-front-end.git`
+2. Navigate to the project directory: `cd weather-app-front-end`
 3. Install dependencies: `npm install`
 
 ## Usage
