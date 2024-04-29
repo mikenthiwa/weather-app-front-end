@@ -11,6 +11,9 @@
     &__city {
       margin: 0
     }
+    @media (max-width: 768px) {
+      margin-left: 20px;
+    }
   }
   
   
@@ -34,6 +37,9 @@
     
     hr {
       margin: 0 20px;
+      @media (max-width: 768px) {
+        margin: 0;
+      }
     }
     
     &__meta-details {
@@ -60,5 +66,7 @@
     
     
   }
+
+  
   
 }

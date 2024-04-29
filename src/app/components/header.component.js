@@ -1,5 +1,5 @@
-import './header.scss';
 import { useWeather } from '../context/WeatherContext';
+import './header.scss';
 
 const HeaderComponent = () => {
   const { language, setLanguage } = useWeather();
