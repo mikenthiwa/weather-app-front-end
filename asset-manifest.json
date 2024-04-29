@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/mikenthiwa/weather-app-front-end.git/static/css/main.7b19e908.css",
+    "main.js": "/mikenthiwa/weather-app-front-end.git/static/js/main.b6b628ee.js",
+    "static/js/453.919a3430.chunk.js": "/mikenthiwa/weather-app-front-end.git/static/js/453.919a3430.chunk.js",
+    "index.html": "/mikenthiwa/weather-app-front-end.git/index.html",
+    "main.7b19e908.css.map": "/mikenthiwa/weather-app-front-end.git/static/css/main.7b19e908.css.map",
+    "main.b6b628ee.js.map": "/mikenthiwa/weather-app-front-end.git/static/js/main.b6b628ee.js.map",
+    "453.919a3430.chunk.js.map": "/mikenthiwa/weather-app-front-end.git/static/js/453.919a3430.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7b19e908.css",
+    "static/js/main.b6b628ee.js"
+  ]
+}
