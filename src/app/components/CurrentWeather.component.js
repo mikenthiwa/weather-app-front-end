@@ -29,7 +29,7 @@ const CurrentWeather = () => {
         <div className="current-weather__body__details">
           <ReactAnimatedWeather
             className="icon"
-            icon={_.upperCase(data.main) || getWeatherIcon}
+            icon={getWeatherIcon}
             size={100}
             animate={true}
             color={'#fff'}
